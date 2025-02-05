@@ -8,8 +8,6 @@ import java.util.StringTokenizer;
 
 public class RequestHandler {
 
-    private static final String PUBLIC_DIR = "src/main/public";
-
     public static void handle(Socket clientSocket) throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -30,10 +28,9 @@ public class RequestHandler {
             sendResponse(writer, 405, "Method Not Allowed", "Solo se permite GET.");
             return;
         }
-        
-        
+
         // Separar la ruta del query string (si existe)
-        
+
         String path;
         String queryString = null;
         if (fullpath.contains("?")) {
@@ -44,15 +41,23 @@ public class RequestHandler {
             path = fullpath;
         }
 
-        // Si la ruta es "/", devolver index.html
+
+
         if (path.equals("/")) {
-            path = "/index.html"; // Aquí solo reasignamos el valor a la misma variable 'path'
+            path = "/index.html"; // por defecto
+            
         }
 
-        // Intentar servir un archivo estático desde /public
-        File file = new File(PUBLIC_DIR + path);
+        //servir un archivo estático desde el MicroFrameWork
+        String staticPath = MicroFrameWork.getStaticFilesPath(); // Obtener la ruta de los archivos estáticos
+        File file = new File(staticPath + path);
+        
+
         if (file.exists() && !file.isDirectory()) {
             sendFileResponse(writer, file);
+            writer.close();
+            reader.close();
+            return;
         }
 
         if (path.equals("/hello")) {

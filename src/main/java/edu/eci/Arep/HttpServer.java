@@ -14,9 +14,9 @@ public class httpServer {
 
         // Rutas para los metodos estaticos
 
-        MicroFrameWork.get("/hello", (req, res) -> "¡Hola, mundo!");
-        MicroFrameWork.get("/pi", (req, res) -> String.valueOf(Math.PI));
-        MicroFrameWork.get("/weather", (req, res) ->{
+        MicroFrameWork.get("/App/hello", (req, res) -> "¡Hola, mundo!");
+        MicroFrameWork.get("/App/pi", (req, res) -> String.valueOf(Math.PI));
+        MicroFrameWork.get("/App/weather", (req, res) ->{
             weatherService ws = new weatherService();
             @SuppressWarnings("static-access")
             String response = ws.handleWeatherRequest(req, res);
@@ -25,7 +25,7 @@ public class httpServer {
 
         // Rutas para la extracción de valores de consulta
 
-        MicroFrameWork.get("hello/:name", (req, res) -> "¡Hola, " + req.getQueryString("name"));
+        MicroFrameWork.get("/App/hello/:name", (req, res) -> "¡Hola, " + req.getQueryString("name"));
 
         ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 

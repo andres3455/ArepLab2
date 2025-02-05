@@ -10,4 +10,6 @@ public class Response {
     public int getcodestatus() {
         return statusCode;
     }
+
+
 }
