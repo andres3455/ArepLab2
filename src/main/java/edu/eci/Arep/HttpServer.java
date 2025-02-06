@@ -29,7 +29,7 @@ public class httpServer {
 
         // Rutas para la extracción de valores de consulta
 
-        MicroFrameWork.get("/App/hello/:name", (req, res) -> "¡Hola, " + req.getQueryString("name"));
+        MicroFrameWork.get("/App/hello/:name", (req, res) -> "¡Hola," + req.getQueryString("name"));
 
         ExecutorService threadPool = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 

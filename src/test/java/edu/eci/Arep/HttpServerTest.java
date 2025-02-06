@@ -7,7 +7,7 @@ import java.io.*;
 import java.net.Socket;
 import java.util.concurrent.*;
 
-class HttpServerIntegrationTest {
+class HttpServerTest {
     private static ExecutorService serverExecutor;
 
     @BeforeAll
@@ -36,12 +36,10 @@ class HttpServerIntegrationTest {
             writer.println("Host: localhost");
             writer.println();
 
-            // Leer la primera línea (el código de estado HTTP)
             String responseLine = reader.readLine();
             assertNotNull(responseLine);
             assertTrue(responseLine.contains("200 OK"));
 
-            // Leer y descartar las líneas de encabezados hasta llegar a la línea en blanco
             String header;
             while ((header = reader.readLine()) != null && !header.isEmpty()) {
                 System.out.println("Header: " + header); // Opcional: Para depuración
