@@ -12,13 +12,17 @@ public class httpServer {
 
     public static void main(String[] args) {
 
+        // Configuración de los archivos estáticos
+        MicroFrameWork.StaticFiles("src/main/resources/static");
+
         // Rutas para los metodos estaticos
 
         MicroFrameWork.get("/App/hello", (req, res) -> "¡Hola, mundo!");
         MicroFrameWork.get("/App/pi", (req, res) -> String.valueOf(Math.PI));
+
+        // Rutas para los metodos dinamicos
         MicroFrameWork.get("/App/weather", (req, res) ->{
             weatherService ws = new weatherService();
-            @SuppressWarnings("static-access")
             String response = ws.handleWeatherRequest(req, res);
             return response;
         });

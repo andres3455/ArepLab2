@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class MicroFrameWork {
 
-    private static String staticFilesPath = "src/main/public";
+    private static String staticFilesPath = "src/main";
 
     private static final Map<String, InterfaceRoute> routes = new HashMap<>();
 
