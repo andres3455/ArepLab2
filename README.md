@@ -13,6 +13,42 @@ Se trabajo sobre el primer servidor http, y se agregaron las respectivas mejra p
 
 ### Arquitectura
 
+````
++--------------------------+
+|        httpServer        |
+|  - Inicia el servidor    |
+|  - Define rutas          |
+|  - Maneja conexiones     |
++-----------+--------------+
+            |
+            v
++--------------------------+
+|     MicroFramework       |
+|  - Registra rutas        |
+|  - Asigna handlers       |
+|  - Procesa respuestas    |
++-----------+--------------+
+            |
+            v
++--------------------------+
+|    RequestHandler        |
+|  - Lee solicitudes       |
+|  - Llama a handlers      |
+|  - Escribe respuestas    |
++-----------+--------------+
+            |
+            v
++--------------------------+
+|  Servicios (Ej: Weather) |
+|  - Lógica de negocio     |
+|  - Genera respuestas     |
++--------------------------+
+
+
+````
+
+
+
 ### Instalación
 
 1) Debemos clonar el repositorio
