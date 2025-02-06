@@ -3,7 +3,7 @@
 
 ## Taller 2 Desarrollo de marcos web para servicios REST y gestión de archivos estáticos
 
-Se trabajo sobre el primer servidor http, y se agregaron las respectivas mejra para implementar marcos WEB para los servicios REST , y sumado a esto se introdujo un método que permita a los desarrolladores definir la carpeta donde Se encuentran los archivos estáticos
+Se trabajó sobre el primer servidor HTTP, y se agregaron las respectivas mejoras para implementar marcos WEB para los servicios REST, y sumado a esto se introdujo un método que permita a los desarrolladores definir la carpeta donde Se encuentran los archivos estáticos
 
 ---
 ### Prerrequisitos
@@ -109,8 +109,8 @@ Aquí podemos observar formato de nuestro servidor HTTP.
 
 1) Método estático GET para servicios REST:
 
-Aqui implementamos el metodo que nos permite utilizar funciones lambda para definir servicios REST, en este ejemplo accedemos al metodo especifico que queremos con la ruta "App/hello" o "App/pi" para que el servidor nos retorne el valor de Pi
-para mayor practicidad, en el formato se incluyo una opcion para definir la ruta sin tener que escribirla en el browser
+Aquí implementamos el método que nos permite utilizar funciones lambda para definir servicios REST, en este ejemplo accedemos al método específico que queremos con la ruta "App/hello" o "App/pi" para que el servidor nos retorne el valor de Pi
+para mayor practicidad, en el formato se incluyo una opción para definir la ruta sin tener que escribirla en el browser
 
 ![Imagen1](img/2.png)
 ![image](img/3.png).
@@ -121,13 +121,13 @@ para mayor practicidad, en el formato se incluyo una opcion para definir la ruta
 
 ![](/img/5.png)
 
-Para esta parte, se implemento un mecanismo el cual extrae los valores de una consulta, en este caso una querystring, de donde tenemos el parametro "name" con valor "Andres" para ello se utiliza el metodo .get pasandole la ruta que queremos que responda y me retornara un mensaje de "hola" identado con el valor del parametro que extrajimos
+Para esta parte, se implementó un mecanismo el cual extrae los valores de una consulta, en este caso una querystring, de donde tenemos el parámetro "name" con valor "Andrés" para ello se utiliza el método .get pasándole la ruta que queremos que responda y me retornara un mensaje de "hola" identado con el valor del parámetro que extrajimos
 
 3) Especificación de ubicación de archivo estático
 
 ![Imagen](img/6.png)
 
-Antes lo que haciamos, era asignar a una variable, la ruta donde estaban nuestros archivos, ahora debemos implementar un metodo, lo que se realizo fue definir una ruta por defecto como una variable, luego se creo el metodo que cambia esa variable que definimos, por el nuevo argumento que especifiquemos al llamar al metodo.
+Antes lo que hacíamos, era asignar a una variable, la ruta donde estaban nuestros archivos, ahora debemos implementar un método, lo que se realizó fue definir una ruta por defecto como una variable, luego se creó el método que cambia esa variable que definimos, por el nuevo argumento que especifiquemos al llamar al método.
 
 ## Pruebas
 
@@ -139,7 +139,7 @@ mvn clean test
 
 ![Imagen](img/7.png)
 
-## Cobertura de las pruebas con jacoco
+## Cobertura de las pruebas con JaCoCo
 
 ![Imagen](img/8.png)
 
