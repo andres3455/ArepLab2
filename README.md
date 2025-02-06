@@ -13,39 +13,57 @@ Se trabajo sobre el primer servidor http, y se agregaron las respectivas mejra p
 
 ### Arquitectura
 
-````
-+--------------------------+
-|        httpServer        |
-|  - Inicia el servidor    |
-|  - Define rutas          |
-|  - Maneja conexiones     |
-+-----------+--------------+
-            |
-            v
-+--------------------------+
-|     MicroFramework       |
-|  - Registra rutas        |
-|  - Asigna handlers       |
-|  - Procesa respuestas    |
-+-----------+--------------+
-            |
-            v
-+--------------------------+
-|    RequestHandler        |
-|  - Lee solicitudes       |
-|  - Llama a handlers      |
-|  - Escribe respuestas    |
-+-----------+--------------+
-            |
-            v
-+--------------------------+
-|  Servicios (Ej: Weather) |
-|  - Lógica de negocio     |
-|  - Genera respuestas     |
-+--------------------------+
+````                                    
++--------------------------------------------------+
+|              Capa de Presentación               |
+|  - Cliente (navegador, Postman, etc.)           |
+|  - Envía solicitudes HTTP al servidor           |
++--------------------------------------------------+
+                      |
+                      v
++--------------------------------------------------+
+|              Capa de Controlador                |
+|  - httpServer                                   |
+|  - Inicia el servidor y acepta conexiones       |
+|  - Define rutas mediante MicroFramework        |
+|  - Gestiona el ciclo de vida del servidor      |
++--------------------------------------------------+
+                      |
+                      v
++--------------------------------------------------+
+|              Capa de Aplicación                 |
+|  - MicroFramework                               |
+|  - Define y gestiona rutas HTTP                |
+|  - Asigna controladores a las rutas            |
+|  - Maneja archivos estáticos                   |
++--------------------------------------------------+
+                      |
+                      v
++--------------------------------------------------+
+|              Capa de Servicios                  |
+|  - RequestHandler                               |
+|  - Procesa solicitudes y genera respuestas     |
+|  - Extrae parámetros de las peticiones         |
++--------------------------------------------------+
+                      |
+                      v
++--------------------------------------------------+
+|              Capa de Negocio                    |
+|  - weatherService (y otros servicios futuros)  |
+|  - Contiene la lógica de negocio específica    |
+|  - Formatea respuestas en función de la lógica |
++--------------------------------------------------+
+                      |
+                      v
++--------------------------------------------------+
+|              Capa de Datos                      |
+|  - Manejo de archivos estáticos                |
+|  - (Futuro) Conexión con bases de datos        |
++--------------------------------------------------+
 
 
 ````
+
 
 
 
