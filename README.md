@@ -11,54 +11,52 @@ Se trabajo sobre el primer servidor http, y se agregaron las respectivas mejra p
 * [Maven](https://maven.apache.org/): Es una herramienta de comprensión y gestión de proyectos de software. Basado en el concepto de modelo de objetos de proyecto (POM), Maven puede gestionar la construcción, los informes y la documentación de un proyecto desde una pieza de información central.
 * [Git](https://learn.microsoft.com/es-es/devops/develop/git/what-is-git): Es un sistema de control de versiones distribuido, lo que significa que un clon local del proyecto es un repositorio de control de versiones completo. Estos repositorios locales plenamente funcionales permiten trabajar sin conexión o de forma remota con facilidad.
 
-### Arquitectura
+### Arquitectura representada por Capas
 
 ````                                    
 +--------------------------------------------------+
-|              Capa de Presentación               |
-|  - Cliente (navegador, Postman, etc.)           |
-|  - Envía solicitudes HTTP al servidor           |
+|              Capa de Presentación                |
+|  - Cliente (navegador, Postman, etc.)            |
+|  - Envía solicitudes HTTP al servidor            |
 +--------------------------------------------------+
                       |
                       v
 +--------------------------------------------------+
-|              Capa de Controlador                |
-|  - httpServer                                   |
-|  - Inicia el servidor y acepta conexiones       |
-|  - Define rutas mediante MicroFramework        |
-|  - Gestiona el ciclo de vida del servidor      |
+|              Capa de Controlador                 |
+|  - httpServer                                    |
+|  - Inicia el servidor y acepta conexiones        |
+|  - Define rutas mediante MicroFramework          |
+|  - Gestiona el ciclo de vida del servidor        |
 +--------------------------------------------------+
                       |
                       v
 +--------------------------------------------------+
-|              Capa de Aplicación                 |
-|  - MicroFramework                               |
-|  - Define y gestiona rutas HTTP                |
-|  - Asigna controladores a las rutas            |
-|  - Maneja archivos estáticos                   |
+|              Capa de Aplicación                  | 
+|  - MicroFramework                                |
+|  - Define y gestiona rutas HTTP                  |
+|  - Asigna controladores a las rutas              |
+|  - Maneja archivos estáticos                     |
 +--------------------------------------------------+
                       |
                       v
 +--------------------------------------------------+
-|              Capa de Servicios                  |
-|  - RequestHandler                               |
-|  - Procesa solicitudes y genera respuestas     |
-|  - Extrae parámetros de las peticiones         |
+|              Capa de Servicios                   |
+|  - RequestHandler                                |
+|  - Procesa solicitudes y genera respuestas       |
+|  - Extrae parámetros de las peticiones           |
 +--------------------------------------------------+
                       |
                       v
 +--------------------------------------------------+
-|              Capa de Negocio                    |
-|  - weatherService (y otros servicios futuros)  |
-|  - Contiene la lógica de negocio específica    |
-|  - Formatea respuestas en función de la lógica |
+|              Capa de Negocio                     |
+|  - weatherService (y otros servicios futuros)    | 
 +--------------------------------------------------+
                       |
                       v
 +--------------------------------------------------+
-|              Capa de Datos                      |
-|  - Manejo de archivos estáticos                |
-|  - (Futuro) Conexión con bases de datos        |
+|              Capa de Datos                       |
+|  - Manejo de archivos estáticos                  |
+|  - (Futuro) Conexión con bases de datos          |
 +--------------------------------------------------+
 
 
@@ -71,11 +69,11 @@ Se trabajo sobre el primer servidor http, y se agregaron las respectivas mejra p
 
 1) Debemos clonar el repositorio
 ```
-https://github.com/andres3455/Lab1Arep.git
+ https://github.com/andres3455/ArepLab2.git
 ```
 2) Una vez clonamos, accedemos al directorio
 ```
-cd Lab1Arep
+cd ArepLab2
 ```
 3) Construimos el proyecto
 ```
@@ -102,7 +100,7 @@ mvn exec:java -"Dexec.mainClass"="edu.eci.arep.http.httpServer"
 Una vez ejecutado, accedemos a la URL en un navegador
 
 ```
-http://localhost:35000/
+http://localhost:35000
 ```
 
 ![Imagen1](img/1.png)
