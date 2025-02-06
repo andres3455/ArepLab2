@@ -105,32 +105,43 @@ http://localhost:35000
 
 ![Imagen1](img/1.png)
 
-Aquí podemos observar formato de entrega de archivos, ahora probemos el comportamiento con cada uno de los archivos.
+Aquí podemos observar formato de nuestro servidor HTTP.
 
-1) HTML
+1) Método estático GET para servicios REST:
+
+Aqui implementamos el metodo que nos permite utilizar funciones lambda para definir servicios REST, en este ejemplo accedemos al metodo especifico que queremos con la ruta "App/hello" o "App/pi" para que el servidor nos retorne el valor de Pi
+para mayor practicidad, en el formato se incluyo una opcion para definir la ruta sin tener que escribirla en el browser
+
 ![Imagen1](img/2.png)
-
-Este archivo incluye algo, básico, un archivo HTML con un saludo, y una especificación de su tipo
-
-2) JS
 ![image](img/3.png).
-
-Este archivo de tipo JS, una función llamada fetchFile(fileName), que realiza una solicitud HTTP para obtener el contenido de un archivo desde el servidor y lo muestra en la página.
-
-3) CSS
 ![image](img/4.png)
 
-El archivo CSS, contiene los estilos y propiedades, que utiliza el formato de inicio
 
-4) Imagen (JPG)
+2) Mecanismo de extracción de valores de consulta:
+
 ![](/img/5.png)
 
-Imagen del edificio I
+Para esta parte, se implemento un mecanismo el cual extrae los valores de una consulta, en este caso una querystring, de donde tenemos el parametro "name" con valor "Andres" para ello se utiliza el metodo .get pasandole la ruta que queremos que responda y me retornara un mensaje de "hola" identado con el valor del parametro que extrajimos
 
-5) API REST
+3) Especificación de ubicación de archivo estático
 
 ![Imagen](img/6.png)
 
+Antes lo que haciamos, era asignar a una variable, la ruta donde estaban nuestros archivos, ahora debemos implementar un metodo, lo que se realizo fue definir una ruta por defecto como una variable, luego se creo el metodo que cambia esa variable que definimos, por el nuevo argumento que especifiquemos al llamar al metodo.
+
+## Pruebas
+
+para ejecutar las pruebas, puede utilizar el siguiente comando 
+
+```
+mvn clean test
+```
+
+![Imagen](img/7.png)
+
+## Cobertura de las pruebas con jacoco
+
+![Imagen](img/8.png)
 
 ### Construido con
 
